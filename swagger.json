@@ -1,0 +1,126 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Explorer for Tendermint Blockchains API",
+    "description": "Explorer for Tendermint Blockchains API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Validators",
+      "description": "API for Validators in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/validators": {
+      "post": {
+        "tags": [
+          "Validators"
+        ],
+        "description": "Create new Validator in system",
+        "parameters": [
+          {
+            "name": "validator",
+            "in": "body",
+            "description": "Validator that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Validators"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New Validator is created",
+            "schema": {
+              "$ref": "#/definitions/Validator"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Validators"
+        ],
+        "summary": "Get all Validators in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Validators"
+            }
+          }
+        }
+      }
+    },
+    "/validators/{validator_address}": {
+      "parameters": [
+        {
+          "name": "validator_address",
+          "in": "path",
+          "required": true,
+          "description": "Address of Validator that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Validators"
+        ],
+        "summary": "Get Validator with given Address",
+        "responses": {
+          "200": {
+            "description": "Validator is found",
+            "schema": {
+              "$ref": "#/definitions/Validator"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Validator": {
+      "required": [
+        "address",
+        "pub_key"
+      ],
+      "properties": {
+        "address": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "pub_key": {
+          "type": "object"
+        },
+        "voting_power": {
+          "type": "string"
+        },
+        "proposer_priority": {
+          "type": "string"
+        }
+      }
+    },
+    "Validators": {
+      "type": "array",
+      "$ref": "#/definitions/Validator"
+    }
+  }
+}

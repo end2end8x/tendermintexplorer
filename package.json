@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/end2end8x/tendermintexplorer#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
