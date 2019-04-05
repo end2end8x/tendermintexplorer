@@ -1,0 +1,29 @@
+{
+  "name": "tendermintexplorer",
+  "version": "1.0.0",
+  "description": "Explorer for Tendermint Blockchains",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/end2end8x/tendermintexplorer.git"
+  },
+  "keywords": [
+    "tendermint",
+    "blockchain",
+    "explorer"
+  ],
+  "author": "Tran Danh Tuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/end2end8x/tendermintexplorer/issues"
+  },
+  "homepage": "https://github.com/end2end8x/tendermintexplorer#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3"
+  },
+  "devDependencies": {}
+}
